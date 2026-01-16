@@ -1,5 +1,7 @@
 import express from 'express';
 import cors from 'cors';
+import  authRoute  from './modules/auth/auth.routes.js';
+import errorHandler from './middleware/errorMiddleware.js';
 
 
 const app = express();
@@ -20,7 +22,8 @@ app.get('/', (req, res) => {
   res.status(200).json({ message: "API is healthy and running" });
 });
 
-
+app.use("/auth", authRoute)
+app.use(errorHandler);
 
 
 export default app;

@@ -5,7 +5,6 @@ dotenv.config();
 
 const uri = process.env.MONGO_URI;
 
-// Create a MongoClient with the Stable API version
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -18,13 +17,11 @@ let db = null;
 
 export const connectDB = async () => {
   try {
-    // Connect the client to the server
     await client.connect();
     
-    // Choose the database name (it will use the one in your URI or 'ecommerce' by default)
     db = client.db(); 
     
-    // Ping to confirm connection
+
     await db.command({ ping: 1 });
     console.log("✅ Pinged! You successfully connected to MongoDB Atlas.");
     
@@ -35,7 +32,9 @@ export const connectDB = async () => {
   }
 };
 
-// This function allows services to get the DB instance easily
+/**
+ * @returns {import('mongodb').Db}
+ */
 export const getDB = () => {
   if (!db) {
     throw new Error("Database not initialized. Call connectDB first.");
