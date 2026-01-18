@@ -6,6 +6,7 @@ import userRoutes from './modules/user/user.routes.js';
 import cookieParser from 'cookie-parser';
 import productRoutes from './modules/product/product.routes.js';
 import orderRoutes from './modules/order/order.routes.js';
+import paymentRoutes from './modules/payment/payment.routes.js';
 
 
 
@@ -14,14 +15,13 @@ import orderRoutes from './modules/order/order.routes.js';
 const app = express();
 
 
-app.use(cors());
 
-/**
- * STRIPE WEBHOOK NOTE: 
- * Stripe webhooks require the raw body to verify the signature. 
- * If you use express.json() globally, it will parse the body and the webhook will fail.
- * We will address this specifically when we build the Order module.
- */
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true
+}));
+
+app.use('/api/payment', express.raw({ type: 'application/json' }), paymentRoutes);
 app.use(express.json()); 
 app.use(cookieParser());
 

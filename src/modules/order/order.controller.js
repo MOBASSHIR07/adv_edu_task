@@ -1,16 +1,28 @@
 import { orderService } from './order.service.js';
+import { paymentService } from '../payment/payment.service.js';
 
 const createOrder = async (req, res, next) => {
     try {
         const { productId } = req.body;
-        const userId = req.user.id; 
+        const { id: userId, email: userEmail } = req.user; 
 
-        const result = await orderService.createOrderDB(userId, productId);
+        const { orderId, product } = await orderService.createOrderDB(userId, productId);
+
+       
+        const orderData = {
+            orderId,
+            productName: product.name,
+            amount: product.price
+        };
+        const session = await paymentService.createCheckoutSession(orderData, userEmail);
 
         res.status(201).json({
             success: true,
-            message: "Order created successfully",
-            data: result
+            message: "Order placed. Redirect to payment.",
+            data: {
+                orderId,
+                paymentUrl: session.url 
+            }
         });
     } catch (error) {
         next(error);
