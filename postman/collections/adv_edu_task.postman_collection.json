@@ -1,202 +1,106 @@
 {
-  "info": {
-    "_postman_id": "a96ea785-09d1-47d1-b1cc-73030e33b54e",
-    "name": "adv_edu_task",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-  },
-  "item": [
-    {
-      "name": "New Folder",
-      "item": [],
-      "id": "ec76ab52-b0a6-4316-beab-465804d011bd"
-    },
-    {
-      "name": "sign_up",
-      "id": "e7911edb-7b76-4b00-98c5-27cd28e7aa9a",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json",
-            "type": "text"
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n    \"name\": \"John Doe\",\r\n    \"email\": \"john@example.com\",\r\n    \"password\": \"password123\"\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:5000/auth/signup",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "auth",
-            "signup"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "sign in",
-      "id": "91fe0f3f-69c3-4f6b-9d76-488a5af30ba9",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": ""
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "create-product",
-      "id": "3f748592-2b6d-42db-97de-234ef9cb793d",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:5000/products",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "products"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "place-order",
-      "id": "2500710b-3eef-4ffb-bac5-3965afb38f3c",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:5000/products",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "products"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "get profile",
-      "id": "f5f4fd66-7149-4341-b80d-ebd4d382e574",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": ""
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "my-orders",
-      "id": "58f0de4b-cd8d-409f-b8d7-75b782a04cc2",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:5000/orders/my-orders",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "orders",
-            "my-orders"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "get products",
-      "id": "a0ecfbd0-59cb-47fa-a86b-7862d8581b3d",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:5000/products",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "products"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "place-order",
-      "id": "d500073f-16b7-4666-88d4-fc23ca04c557",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "http://localhost:5000/orders",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "5000",
-          "path": [
-            "orders"
-          ]
-        }
-      },
-      "response": []
-    }
-  ]
+	"info": {
+		"_postman_id": "a96ea785-09d1-47d1-b1cc-73030e33b54e",
+		"name": "E-commerce API - Final Submission",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/auth/signup"
+					}
+				},
+				{
+					"name": "Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"john@example.com\",\n    \"password\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/auth/login"
+					}
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sample Product\",\n    \"price\": 50,\n    \"description\": \"Awesome product description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/products"
+					}
+				},
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"url": "http://localhost:5000/products"
+					}
+				}
+			]
+		},
+		{
+			"name": "Orders & Payment",
+			"item": [
+				{
+					"name": "Place Order & Pay",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"PASTE_PRODUCT_ID_HERE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:5000/orders"
+					}
+				},
+				{
+					"name": "My Orders",
+					"request": {
+						"method": "GET",
+						"url": "http://localhost:5000/orders/my-orders"
+					}
+				}
+			]
+		}
+	]
 }
