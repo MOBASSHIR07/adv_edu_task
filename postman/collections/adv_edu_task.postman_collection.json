@@ -39,7 +39,7 @@
 								}
 							}
 						},
-						"url": "http://localhost:5000/auth/login"
+						"url": "http://localhost:5000/auth/signin"
 					}
 				}
 			]
